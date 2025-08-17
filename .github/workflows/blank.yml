@@ -1,0 +1,40 @@
+# File: .github/workflows/main.yml
+
+name: CI with Push Permission
+
+# When the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# Give write permission to the workflow
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Simple script to test
+      - name: Run a test script
+        run: |
+          echo "Hello, world!"
+          echo "This workflow has write permissions to push changes."
+
+      # Step 3: Optional – push back changes (example)
+      # WARNING: Only use if you really need to push from workflow
+      # - name: Commit and push changes
+      #   run: |
+      #     git config --global user.name "github-actions"
+      #     git config --global user.email "github-actions@github.com"
+      #     git add .
+      #     git commit -m "Automated commit from workflow" || echo "No changes to commit"
+      #     git push origin main
