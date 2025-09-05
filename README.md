@@ -23,7 +23,7 @@ flowchart LR
 ```
 
 ### Data Flow Architecture
-
+[![Screenshot-2025-09-05-131029.png](https://i.postimg.cc/mDQTGht6/Screenshot-2025-09-05-131029.png)](https://postimg.cc/tZCK3qdh)
 #### Mermaid Architecture Diagram
 ```mermaid
 flowchart TB
@@ -92,7 +92,10 @@ iterationValues:
   - ["trnx_17.csv"]                 # Second file to process
 breakOnFailure: "No"                 # Continue processing even if one fails
 ```
+[![Screenshot-2025-09-05-114414.png](https://i.postimg.cc/d3ZhSdSN/Screenshot-2025-09-05-114414.png)](https://postimg.cc/n9ZVXsxq)
 
+
+[![Screenshot-2025-09-05-020623.png](https://i.postimg.cc/7ZwgbsRx/Screenshot-2025-09-05-020623.png)](https://postimg.cc/rKZdPJcb)
 ### 3. S3 Load Component
 - **Type**: `s3-load`
 - **Purpose**: Extract data from S3 and load into Snowflake
@@ -126,7 +129,7 @@ errorOnColumnCountMismatch: "False" # Continue if column count varies
 onError: "Abort Statement"          # Stop processing on error
 breakOnFailure: "No"                # Don't break iteration on failure
 ```
-
+[![Screenshot-2025-09-05-114235.png](https://i.postimg.cc/gcg49Ptv/Screenshot-2025-09-05-114235.png)](https://postimg.cc/qgC2nWTR)
 ## Design Patterns Used
 
 ### 1. Iterator Pattern
@@ -161,6 +164,7 @@ breakOnFailure: "No"                # Don't break iteration on failure
 
 ### 4. Dynamic File Processing Pattern
 **Description**: Uses variables (`${file_name}`) for dynamic file processing.
+[![Screenshot-2025-09-05-114439.png](https://i.postimg.cc/ZYPt60RJ/Screenshot-2025-09-05-114439.png)](https://postimg.cc/z3fcrzKQ)
 
 **Benefits**:
 - **Reusability**: Same component processes different files
@@ -309,6 +313,7 @@ flowchart TD
 ### Output Messages:
 - **S3 Load**: `⚡File Loaded: ${file_name}` - Confirms successful file processing
 - **Iterator**: Detailed deployment information with emojis for visual clarity
+- [![Screenshot-2025-09-05-020341.png](https://i.postimg.cc/T33pZZSW/Screenshot-2025-09-05-020341.png)](https://postimg.cc/mtKL96Tb)
 
 ### Key Metrics to Monitor:
 - File processing success rate
